@@ -27,7 +27,7 @@ router.put('/:_id',(req,res) => {
         res.status(200).send("อัพเดตข้อมูลเรียบร้อย");
     })
 })
-router.delete('/:_id',(req,res)=> {
+router.delete('/:_id',(req,res) => {
     User.findByIdAndDelete(req.params._id, (err ,data) => {
         if (err) return res.status(400).send(err);
         res.status(200).send("ลบข้อมูลเรียบร้อย");
