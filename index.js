@@ -27,6 +27,11 @@ app.listen(port ,() => {
 app.get('/',(req,res) => {
     res.status(200).send("Starting with " + port)
 })
+
+var User = require('./router');
+app.use('/api/user',User)
+
+
 app.use((req, res, next) => {
     var err = new Error("ไม่พบ path ที่คุณต้องการ");
     err.status = 404;
