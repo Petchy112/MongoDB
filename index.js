@@ -20,11 +20,11 @@ app.use(bodyparser.json());
 
 const port = process.env.PORT || 5000;
 
-app.listen(port ,() => {
+app.listen(port ,() => {    // connect express
     console.log('Connection Successful !')
 })
 
-app.get('/',(req,res) => {
+app.get('/',(req,res) => { // connect DB
     res.status(200).send("Starting with " + port)
 })
 
@@ -33,7 +33,7 @@ app.use('/api/user',User)
 
 
 app.use((req, res, next) => {
-    var err = new Error("ไม่พบ path ที่คุณต้องการ");
+    var err = new Error("Not Path");
     err.status = 404;
     next(err);
   });
